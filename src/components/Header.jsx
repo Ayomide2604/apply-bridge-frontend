@@ -1,5 +1,12 @@
+import { useLocation } from "react-router-dom";
 import logo from "../assets/img/logo.svg";
 const Header = () => {
+	const location = useLocation();
+	const hideOnRoutes = ["/login", "/signup", "/forgot-password"];
+
+	if (hideOnRoutes.includes(location.pathname)) {
+		return null;
+	}
 	return (
 		<header>
 			<nav className="navbar navbar-expand-lg  transparent navbar-transparent navbar-light navbar-clone fixed navbar-stick">
@@ -55,10 +62,10 @@ const Header = () => {
 							</ul>
 
 							<div className="mt-3 mt-lg-0 d-flex align-items-center">
-								<a href="signin.html" className="btn btn-light mx-2">
+								<a href="/login" className="btn btn-light mx-2">
 									Login
 								</a>
-								<a href="signup.html" className="btn btn-primary">
+								<a href="/signup" className="btn btn-primary">
 									Create account
 								</a>
 							</div>

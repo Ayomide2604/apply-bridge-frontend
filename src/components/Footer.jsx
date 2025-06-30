@@ -1,6 +1,12 @@
-import React from "react";
+import { useLocation } from "react-router-dom";
 
 const Footer = () => {
+	const location = useLocation();
+	const hideOnRoutes = ["/login", "/signup", "/forgot-password"];
+
+	if (hideOnRoutes.includes(location.pathname)) {
+		return null;
+	}
 	return (
 		<footer className="pt-7">
 			<div className="container">

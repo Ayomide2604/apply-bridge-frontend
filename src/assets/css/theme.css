@@ -18735,7 +18735,7 @@ strong {
     position: relative;
 }
 .pattern-square:after {
-    background-image: url(../images/pattern/pattern-square.svg);
+    background-image: url(../img/pattern/pattern-square.svg);
     background-position: top;
     bottom: 0;
     content: "";
