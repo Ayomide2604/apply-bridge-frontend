@@ -1,7 +1,3 @@
-import service1 from "../assets/img/services/service1.jpg";
-import service2 from "../assets/img/services/service2.jpg";
-import service3 from "../assets/img/services/service3.jpg";
-
 const Services = () => {
 	return (
 		<section className="my-xl-9 my-5">
@@ -23,11 +19,15 @@ const Services = () => {
 							<div className="card border-0 card-primary">
 								<div className="card-body p-5">
 									<div className="position-relative d-inline-block mb-5">
-										<img
-											src={service1}
-											alt="CV Optimization"
-											className="avatar avatar-xl rounded-circle border-2 border border-white shadow-sm"
-										/>
+										<div
+											className="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
+											style={{ width: 80, height: 80 }}
+										>
+											<i
+												className="bx bx-file-find text-primary"
+												style={{ fontSize: 40 }}
+											></i>
+										</div>
 									</div>
 									<div className="mb-5">
 										<h4 className="card-title">CV Optimization</h4>
@@ -44,11 +44,15 @@ const Services = () => {
 							<div className="card border-0 card-primary">
 								<div className="card-body p-5">
 									<div className="position-relative d-inline-block mb-5">
-										<img
-											src={service2}
-											alt="Job Application"
-											className="avatar avatar-xl rounded-circle border-2 border border-white shadow-sm"
-										/>
+										<div
+											className="bg-success bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
+											style={{ width: 80, height: 80 }}
+										>
+											<i
+												className="bx bx-briefcase-alt text-success"
+												style={{ fontSize: 40 }}
+											></i>
+										</div>
 									</div>
 									<div className="mb-5">
 										<h4 className="card-title">Job Application</h4>
@@ -66,11 +70,15 @@ const Services = () => {
 							<div className="card border-0 card-primary">
 								<div className="card-body p-5">
 									<div className="position-relative d-inline-block mb-5">
-										<img
-											src={service3}
-											alt="Cover Letter & Statement Writing"
-											className="avatar avatar-xl rounded-circle border-2 border border-white shadow-sm"
-										/>
+										<div
+											className="bg-info bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
+											style={{ width: 80, height: 80 }}
+										>
+											<i
+												className="bx bx-edit-alt text-info"
+												style={{ fontSize: 40 }}
+											></i>
+										</div>
 									</div>
 									<div className="mb-5">
 										<h4 className="card-title">
