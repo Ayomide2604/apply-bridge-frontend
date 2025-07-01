@@ -1,8 +1,10 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/img/logo.svg";
+import avatar from "../assets/img/avatar.jpg";
 const Header = () => {
 	const location = useLocation();
 	const hideOnRoutes = ["/login", "/signup", "/forgot-password"];
+	const user = false;
 
 	if (hideOnRoutes.includes(location.pathname)) {
 		return null;
@@ -11,9 +13,9 @@ const Header = () => {
 		<header>
 			<nav className="navbar navbar-expand-lg  transparent navbar-transparent navbar-light navbar-clone fixed navbar-stick">
 				<div className="container px-3">
-					<a className="navbar-brand" href="index.html">
+					<Link className="navbar-brand" to="index.html">
 						<img src={logo} alt="logo" />
-					</a>
+					</Link>
 					<button
 						className="navbar-toggler offcanvas-nav-btn"
 						type="button"
@@ -27,9 +29,9 @@ const Header = () => {
 						style={{ width: "20rem" }}
 					>
 						<div className="offcanvas-header">
-							<a href="index.html" className="text-inverse">
+							<Link to="index.html" className="text-inverse">
 								<img src={logo} alt="logo" />
-							</a>
+							</Link>
 							<button
 								type="button"
 								className="btn-close"
@@ -40,39 +42,84 @@ const Header = () => {
 						<div className="offcanvas-body pt-0 align-items-center">
 							<ul className="navbar-nav mx-auto align-items-lg-center">
 								<li className="nav-item ">
-									<a className="nav-link " href="#" role="button">
+									<Link className="nav-link " to="/" role="button">
 										Home
-									</a>
+									</Link>
 								</li>
 								<li className="nav-item ">
-									<a className="nav-link" href="#" role="button">
+									<Link className="nav-link" to="#" role="button">
 										About Us
-									</a>
+									</Link>
 								</li>
 								<li className="nav-item">
-									<a className="nav-link " href="#" role="button">
+									<Link className="nav-link " to="#" role="button">
 										Services
-									</a>
+									</Link>
 								</li>
 								<li className="nav-item ">
-									<a className="nav-link " href="#" role="button">
+									<Link className="nav-link " to="#" role="button">
 										Contact
-									</a>
+									</Link>
 								</li>
 							</ul>
 
-							<div className="mt-3 mt-lg-0 d-flex align-items-center">
-								<a href="/login" className="btn btn-light mx-2">
-									Login
-								</a>
-								<a href="/signup" className="btn btn-primary">
-									Create account
-								</a>
+							<div className="mt-3 mt-lg-0 d-flex align-items-center nav-item dropdown">
+								{user ? (
+									<>
+										<span
+											className="nav-link dropdown-toggle d-flex align-items-center"
+											role="button"
+											data-bs-toggle="dropdown"
+											aria-expanded="false"
+										>
+											<img
+												src={avatar}
+												alt="profile"
+												className="img-fluid rounded-circle ms-3 py-2"
+												style={{ maxWidth: 40 }}
+											/>
+										</span>
+										<ul className="dropdown-menu mt-2 shadow rounded-3 border-0 p-2">
+											<li className="mb-1">
+												<Link
+													className="dropdown-item d-flex align-items-center gap-2 py-2 rounded-2 fw-semibold text-primary"
+													to="/dashboard"
+												>
+													<i className="bi bi-grid fs-5" />
+													Dashboard
+												</Link>
+											</li>
+											<li className="mb-1">
+												<Link
+													className="dropdown-item d-flex align-items-center gap-2 py-2 rounded-2 fw-semibold"
+													to="/profile"
+												>
+													<i className="bi bi-person fs-5" />
+													Profile
+												</Link>
+											</li>
+
+											<li>
+												<Link
+													className="dropdown-item d-flex align-items-center gap-2 py-2 rounded-2 fw-semibold text-danger"
+													to="#"
+												>
+													<i className="bi bi-power fs-5" />
+													Logout
+												</Link>
+											</li>
+										</ul>
+									</>
+								) : (
+									<Link to="/signup" className="btn btn-primary">
+										Get Started
+									</Link>
+								)}
 							</div>
 
 							{/* theme toggle  */}
 
-							<div className="text-lg-end d-flex align-items-center justify-content-lg-end ms-3">
+							{/* <div className="text-lg-end d-flex align-items-center justify-content-lg-end ms-3">
 								<div className="dropdown">
 									<button
 										className="btn btn-light btn-icon rounded-circle d-flex align-items-center"
@@ -127,7 +174,7 @@ const Header = () => {
 										</li>
 									</ul>
 								</div>
-							</div>
+							</div> */}
 						</div>
 					</div>
 				</div>
