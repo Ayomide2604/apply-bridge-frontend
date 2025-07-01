@@ -5,6 +5,7 @@ import HomeScreen from "./components/HomeScreen";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ForgotPassword from "./pages/ForgotPassword";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
 	return (
@@ -19,6 +20,7 @@ function App() {
 				</Routes>
 			</main>
 			<Footer />
+			<ScrollToTop />
 		</>
 	);
 }
