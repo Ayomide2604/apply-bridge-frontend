@@ -7,6 +7,7 @@ import Signup from "./pages/Signup";
 import ForgotPassword from "./pages/ForgotPassword";
 import ScrollToTop from "./components/ScrollToTop";
 import ErrorPage from "./pages/ErrorPage";
+import Contact from "./pages/Contact";
 
 function App() {
 	return (
@@ -15,6 +16,7 @@ function App() {
 			<main className="app">
 				<Routes>
 					<Route index element={<HomeScreen />} />
+					<Route path="/contact" element={<Contact />} />
 					<Route path="/login" element={<Login />} />
 					<Route path="/signup" element={<Signup />} />
 					<Route path="/forgot-password" element={<ForgotPassword />} />
