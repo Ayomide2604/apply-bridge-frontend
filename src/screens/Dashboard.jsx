@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import avatar from "../assets/img/avatar.jpg";
 
 const navItems = [
@@ -10,18 +10,27 @@ const navItems = [
 	{ label: "Sign Out", path: "/", icon: "bx bx-log-out" },
 ];
 
-const Dashboard = () => {
+const Dashboard = ({ user, setUser }) => {
+	const navigate = useNavigate();
+
+	const handleNavClick = (item) => {
+		if (item.label === "Sign Out") {
+			setUser(false);
+			navigate("/");
+		}
+	};
+
 	return (
 		<section className="py-lg-7 py-5 bg-light-subtle">
 			<div className="container-fluid">
 				<div className="row min-vh-100">
 					<aside className="col-lg-3 col-md-4 bg-white border-end px-0 mb-4 mb-md-0">
-						<div className="d-flex flex-column align-items-center align-items-md-start p-4 h-100 position-relative">
+						<div className="d-flex  flex-column align-items-center align-items-md-start p-4 h-100 position-relative">
 							<div className="w-100 d-flex flex-column align-items-center align-items-md-start mb-4">
 								<img
 									src={avatar}
 									alt="avatar"
-									className="avatar avatar-lg rounded-circle mb-3 shadow-sm"
+									className="avatar avatar-lg rounded-circle mb-3 shadow-sm d-flex "
 									style={{
 										marginTop: 8,
 										marginBottom: 16,
@@ -45,6 +54,7 @@ const Dashboard = () => {
 														: " text-dark")
 												}
 												end={item.path === "home"}
+												onClick={() => handleNavClick(item)}
 											>
 												<i className={`align-bottom ${item.icon} me-2`}></i>
 												<span>{item.label}</span>

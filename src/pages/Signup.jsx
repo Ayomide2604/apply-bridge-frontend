@@ -1,7 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import icon from "../assets/img/brand-icon.svg";
+import { useState } from "react";
 
-const Signup = () => {
+const Signup = ({ setUser, user }) => {
+	const navigate = useNavigate();
+	const [fullName, setFullName] = useState("");
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const [confirmPassword, setConfirmPassword] = useState("");
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		// Fake signup: set user to true
+		setUser(true);
+		navigate("/dashboard");
+	};
+
 	return (
 		<>
 			<div className="pattern-square" />
@@ -31,7 +45,10 @@ const Signup = () => {
 						<div className="col-xl-5 col-lg-6 col-md-8 col-12">
 							<div className="card shadow-sm mb-3">
 								<div className="card-body">
-									<form className="needs-validation mb-6">
+									<form
+										className="needs-validation mb-6"
+										onSubmit={handleSubmit}
+									>
 										<div className="mb-3">
 											<label
 												htmlFor="signupFullnameInput"
@@ -43,7 +60,9 @@ const Signup = () => {
 												type="text"
 												className="form-control"
 												id="signupFullnameInput"
-												required=""
+												required
+												value={fullName}
+												onChange={(e) => setFullName(e.target.value)}
 											/>
 											<div className="invalid-feedback">
 												Please enter full name
@@ -58,7 +77,9 @@ const Signup = () => {
 												type="email"
 												className="form-control"
 												id="signupEmailInput"
-												required=""
+												required
+												value={email}
+												onChange={(e) => setEmail(e.target.value)}
 											/>
 											<div className="invalid-feedback">
 												Please enter email.
@@ -76,7 +97,9 @@ const Signup = () => {
 													type="password"
 													className="form-control fakePassword"
 													id="formSignUpPassword"
-													required=""
+													required
+													value={password}
+													onChange={(e) => setPassword(e.target.value)}
 												/>
 												<span>
 													<i className="bi bi-eye-slash passwordToggler" />
@@ -98,7 +121,9 @@ const Signup = () => {
 													type="password"
 													className="form-control fakePassword"
 													id="formSignUpConfirmPassword"
-													required=""
+													required
+													value={confirmPassword}
+													onChange={(e) => setConfirmPassword(e.target.value)}
 												/>
 												<span>
 													<i className="bi bi-eye-slash passwordToggler" />

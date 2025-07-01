@@ -1,7 +1,19 @@
 import icon from "../assets/img/brand-icon.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-const Login = () => {
+const Login = ({ setUser, user }) => {
+	const navigate = useNavigate();
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		// Fake login: set user to true
+		setUser(true);
+		navigate("/dashboard");
+	};
+
 	return (
 		<>
 			<div className="pattern-square"></div>
@@ -32,7 +44,10 @@ const Login = () => {
 						<div className="col-xl-5 col-lg-6 col-md-8 col-12">
 							<div className="card shadow-sm mb-6">
 								<div className="card-body">
-									<form className="needs-validation mb-6">
+									<form
+										className="needs-validation mb-6"
+										onSubmit={handleSubmit}
+									>
 										<div className="mb-3">
 											<label htmlFor="signinEmailInput" className="form-label">
 												Email
@@ -43,6 +58,8 @@ const Login = () => {
 												className="form-control"
 												id="signinEmailInput"
 												required
+												value={email}
+												onChange={(e) => setEmail(e.target.value)}
 											/>
 											<div className="invalid-feedback">
 												Please enter email.
@@ -61,6 +78,8 @@ const Login = () => {
 													className="form-control fakePassword"
 													id="formSignUpPassword"
 													required
+													value={password}
+													onChange={(e) => setPassword(e.target.value)}
 												/>
 												<span>
 													<i className="bi bi-eye-slash passwordToggler"></i>

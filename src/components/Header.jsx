@@ -1,7 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/img/logo.svg";
 import avatar from "../assets/img/avatar.jpg";
-const Header = () => {
+
+const Header = ({ user, setUser }) => {
 	const location = useLocation();
 	const hideOnRoutes = [
 		"/login",
@@ -9,7 +10,6 @@ const Header = () => {
 		"/forgot-password",
 		"/page-not-found",
 	];
-	const user = true;
 
 	if (hideOnRoutes.includes(location.pathname)) {
 		return null;
@@ -105,13 +105,13 @@ const Header = () => {
 											</li>
 
 											<li>
-												<Link
+												<button
+													onClick={() => setUser(false)}
 													className="dropdown-item d-flex align-items-center gap-2 py-2 rounded-2 fw-semibold text-danger"
-													to="#"
 												>
 													<i className="bi bi-power fs-5" />
 													Logout
-												</Link>
+												</button>
 											</li>
 										</ul>
 									</>
