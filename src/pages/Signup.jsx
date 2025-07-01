@@ -4,7 +4,8 @@ import { useState } from "react";
 
 const Signup = ({ setUser, user }) => {
 	const navigate = useNavigate();
-	const [fullName, setFullName] = useState("");
+	const [firstName, setFirstName] = useState("");
+	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
@@ -51,21 +52,40 @@ const Signup = ({ setUser, user }) => {
 									>
 										<div className="mb-3">
 											<label
-												htmlFor="signupFullnameInput"
+												htmlFor="signupFirstNameInput"
 												className="form-label"
 											>
-												Full Name
+												First Name
 											</label>
 											<input
 												type="text"
 												className="form-control"
-												id="signupFullnameInput"
+												id="signupFirstNameInput"
 												required
-												value={fullName}
-												onChange={(e) => setFullName(e.target.value)}
+												value={firstName}
+												onChange={(e) => setFirstName(e.target.value)}
 											/>
 											<div className="invalid-feedback">
-												Please enter full name
+												Please enter first name
+											</div>
+										</div>
+										<div className="mb-3">
+											<label
+												htmlFor="signupLastNameInput"
+												className="form-label"
+											>
+												Last Name
+											</label>
+											<input
+												type="text"
+												className="form-control"
+												id="signupLastNameInput"
+												required
+												value={lastName}
+												onChange={(e) => setLastName(e.target.value)}
+											/>
+											<div className="invalid-feedback">
+												Please enter last name
 											</div>
 										</div>
 										<div className="mb-3">
