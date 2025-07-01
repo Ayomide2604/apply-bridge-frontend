@@ -9,7 +9,7 @@ const Header = () => {
 		"/forgot-password",
 		"/page-not-found",
 	];
-	const user = false;
+	const user = true;
 
 	if (hideOnRoutes.includes(location.pathname)) {
 		return null;
@@ -18,7 +18,7 @@ const Header = () => {
 		<header>
 			<nav className="navbar navbar-expand-lg  transparent navbar-transparent navbar-light navbar-clone fixed navbar-stick">
 				<div className="container px-3">
-					<Link className="navbar-brand" to="index.html">
+					<Link className="navbar-brand" to="/">
 						<img src={logo} alt="logo" />
 					</Link>
 					<button
@@ -34,7 +34,7 @@ const Header = () => {
 						style={{ width: "20rem" }}
 					>
 						<div className="offcanvas-header">
-							<Link to="index.html" className="text-inverse">
+							<Link to="/" className="text-inverse">
 								<img src={logo} alt="logo" />
 							</Link>
 							<button
@@ -97,7 +97,7 @@ const Header = () => {
 											<li className="mb-1">
 												<Link
 													className="dropdown-item d-flex align-items-center gap-2 py-2 rounded-2 fw-semibold"
-													to="/profile"
+													to="/dashboard/profile"
 												>
 													<i className="bi bi-person fs-5" />
 													Profile
