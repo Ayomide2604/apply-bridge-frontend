@@ -154,9 +154,7 @@ function Profile() {
 									onChange={handleCV}
 									ref={cvInputRef}
 								/>
-								{cvName && (
-									<div className="small mt-1">Selected: {cvName}</div>
-								)}
+								{cvName && <div className="small mt-1">Selected: {cvName}</div>}
 							</div>
 							<div className="col-12">
 								<button type="submit" className="btn btn-primary">

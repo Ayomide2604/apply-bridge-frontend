@@ -37,11 +37,7 @@ const Dashboard = () => {
 									{navItems.map((item) => (
 										<li className="nav-item w-100" key={item.path}>
 											<NavLink
-												to={
-													item.path === "/"
-														? "/"
-														: `/dashboard/${item.path}`
-												}
+												to={item.path === "/" ? "/" : `/dashboard/${item.path}`}
 												className={({ isActive }) =>
 													"nav-link d-flex align-items-center px-3 py-2 rounded" +
 													(isActive
@@ -50,9 +46,7 @@ const Dashboard = () => {
 												}
 												end={item.path === "home"}
 											>
-												<i
-													className={`align-bottom ${item.icon} me-2`}
-												></i>
+												<i className={`align-bottom ${item.icon} me-2`}></i>
 												<span>{item.label}</span>
 											</NavLink>
 										</li>
