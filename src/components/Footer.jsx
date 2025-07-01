@@ -2,7 +2,12 @@ import { useLocation } from "react-router-dom";
 
 const Footer = () => {
 	const location = useLocation();
-	const hideOnRoutes = ["/login", "/signup", "/forgot-password"];
+	const hideOnRoutes = [
+		"/login",
+		"/signup",
+		"/forgot-password",
+		"page-not-found",
+	];
 
 	if (hideOnRoutes.includes(location.pathname)) {
 		return null;

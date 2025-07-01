@@ -3,7 +3,12 @@ import logo from "../assets/img/logo.svg";
 import avatar from "../assets/img/avatar.jpg";
 const Header = () => {
 	const location = useLocation();
-	const hideOnRoutes = ["/login", "/signup", "/forgot-password"];
+	const hideOnRoutes = [
+		"/login",
+		"/signup",
+		"/forgot-password",
+		"/page-not-found",
+	];
 	const user = false;
 
 	if (hideOnRoutes.includes(location.pathname)) {
