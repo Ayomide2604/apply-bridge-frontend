@@ -12,10 +12,14 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "./assets/css/theme.css";
 import "./assets/css/boxicons.css";
 
+// Toaster for notifications
+import { Toaster } from "sonner";
+
 createRoot(document.getElementById("root")).render(
 	<StrictMode>
 		<BrowserRouter>
 			<App />
+			<Toaster duration={2000} position="top-right" richColors />
 		</BrowserRouter>
 	</StrictMode>
 );
