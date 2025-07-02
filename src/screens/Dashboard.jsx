@@ -1,6 +1,8 @@
 import React from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
-import avatar from "../assets/img/avatar.jpg";
+import avatar from "../assets/img/avatar.png";
+import useAuthStore from "../stores/useAuthStore";
+import getImageUrl from "../utils/getImageUrl";
 
 const navItems = [
 	{ label: "Dashboard", path: "home", icon: "bx bx-grid-alt" },
@@ -10,7 +12,8 @@ const navItems = [
 	{ label: "Sign Out", path: "/", icon: "bx bx-log-out" },
 ];
 
-const Dashboard = ({ user, setUser }) => {
+const Dashboard = () => {
+	const { user } = useAuthStore();
 	const navigate = useNavigate();
 
 	const handleNavClick = (item) => {
@@ -28,7 +31,9 @@ const Dashboard = ({ user, setUser }) => {
 						<div className="d-flex  flex-column align-items-center align-items-md-start p-4 h-100 position-relative">
 							<div className="w-100 d-flex flex-column align-items-center align-items-md-start mb-4">
 								<img
-									src={avatar}
+									src={
+										getImageUrl(user?.record, user?.record?.avatar) || avatar
+									}
 									alt="avatar"
 									className="avatar avatar-lg rounded-circle mb-3 shadow-sm d-flex "
 									style={{
@@ -36,10 +41,13 @@ const Dashboard = ({ user, setUser }) => {
 										marginBottom: 16,
 										border: "4px solid #f8f9fa",
 										background: "#fff",
+										objectFit: "cover",
 									}}
 								/>
-								<h5 className="mb-0">Welcome!</h5>
-								<small className="mb-4">ApplyBridge Account</small>
+								<h5 className="mb-0">
+									Welcome {user?.record?.firstName || user?.record?.lastName}!
+								</h5>
+								<small className="mb-4">ApplyBridge Dashboard</small>
 							</div>
 							<nav className="w-100">
 								<ul className="nav flex-column nav-account gap-1">

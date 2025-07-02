@@ -44,14 +44,13 @@ const useAuthStore = create((set) => ({
 		}
 	},
 
-	login: async ({ email, password, getCart, navigate }) => {
+	login: async ({ email, password, navigate }) => {
 		try {
 			set((state) => ({ ...state, loading: true }));
 
 			const response = await pb
 				.collection("users")
 				.authWithPassword(email, password);
-			if (getCart) getCart();
 			set((state) => ({
 				...state,
 				loading: false,
@@ -67,13 +66,11 @@ const useAuthStore = create((set) => ({
 		}
 	},
 
-	logout: async (navigate) => {
+	logout: async () => {
 		try {
 			toast.success("Logged out successfully");
 			set((state) => ({ ...state, user: null }));
 			localStorage.removeItem("pocketbase_auth");
-			localStorage.removeItem("pocketbase_cart");
-			if (navigate) navigate("/login");
 		} catch (error) {
 			toast.error("logout failed");
 			console.error(error);

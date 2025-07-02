@@ -1,5 +1,5 @@
 import React from "react";
-import avatar from "../assets/img/avatar.jpg";
+import avatar from "../assets/img/avatar.png";
 
 const DashboardHome = () => (
 	<section className="py-lg-7 py-5 bg-light-subtle h-100 min-vh-100">

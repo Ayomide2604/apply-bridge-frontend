@@ -17,20 +17,15 @@ import Applications from "./pages/Applications";
 function App() {
 	const [user, setUser] = useState(false);
 	const location = useLocation();
-	const isErrorPage =
-		location.pathname === "/error" || location.pathname === "/page-not-found";
 
 	return (
 		<>
-			{!isErrorPage && <Header user={user} setUser={setUser} />}
+			<Header />
 			<main className="app">
 				<Routes>
 					<Route index element={<HomeScreen />} />
 					<Route path="/contact" element={<Contact />} />
-					<Route
-						path="/login"
-						element={<Login setUser={setUser} user={user} />}
-					/>
+					<Route path="/login" element={<Login />} />
 					<Route
 						path="/signup"
 						element={<Signup setUser={setUser} user={user} />}
@@ -49,7 +44,7 @@ function App() {
 					<Route path="*" element={<Navigate to="/error" replace />} />
 				</Routes>
 			</main>
-			{!isErrorPage && <Footer />}
+			<Footer />
 			<ScrollToTop />
 		</>
 	);

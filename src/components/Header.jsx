@@ -1,8 +1,11 @@
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/img/logo.svg";
-import avatar from "../assets/img/avatar.jpg";
+import avatar from "../assets/img/avatar.png";
+import useAuthStore from "../stores/useAuthStore";
+import getImageUrl from "../utils/getImageUrl";
 
-const Header = ({ user, setUser }) => {
+const Header = () => {
+	const { user, logout } = useAuthStore();
 	const location = useLocation();
 	const hideOnRoutes = [
 		"/login",
@@ -78,10 +81,17 @@ const Header = ({ user, setUser }) => {
 											aria-expanded="false"
 										>
 											<img
-												src={avatar}
+												src={
+													getImageUrl(user?.record, user?.record?.avatar) ||
+													avatar
+												}
 												alt="profile"
-												className="img-fluid rounded-circle ms-3 py-2"
-												style={{ maxWidth: 40 }}
+												className="img-fluid rounded-circle ms-3"
+												style={{
+													height: 50,
+													width: 50,
+													objectFit: "cover",
+												}}
 											/>
 										</span>
 										<ul className="dropdown-menu mt-2 shadow rounded-3 border-0 p-2">
@@ -106,7 +116,7 @@ const Header = ({ user, setUser }) => {
 
 											<li>
 												<button
-													onClick={() => setUser(false)}
+													onClick={logout}
 													className="dropdown-item d-flex align-items-center gap-2 py-2 rounded-2 fw-semibold text-danger"
 												>
 													<i className="bi bi-power fs-5" />
@@ -116,9 +126,14 @@ const Header = ({ user, setUser }) => {
 										</ul>
 									</>
 								) : (
-									<Link to="/signup" className="btn btn-primary">
-										Get Started
-									</Link>
+									<div className="d-flex gap-3">
+										<Link to="/login" className="btn btn-primary">
+											Login
+										</Link>
+										<Link to="/signup" className="btn btn-primary">
+											Get Started
+										</Link>
+									</div>
 								)}
 							</div>
 

@@ -1,5 +1,7 @@
 import React, { useState, useRef } from "react";
-import avatar from "../assets/img/avatar.jpg";
+import avatar from "../assets/img/avatar.png";
+import getImageUrl from "../utils/getImageUrl";
+import useAuthStore from "../stores/useAuthStore";
 
 const initialProfile = {
 	firstName: "Jane",
@@ -12,9 +14,9 @@ const initialProfile = {
 };
 
 function Profile() {
+	const { user } = useAuthStore();
 	const [profile, setProfile] = useState(initialProfile);
 	const [message, setMessage] = useState("");
-	const [preview, setPreview] = useState(avatar);
 	const [cvName, setCvName] = useState("");
 	const fileInputRef = useRef();
 	const cvInputRef = useRef();
@@ -65,7 +67,7 @@ function Profile() {
 							onClick={triggerFileInput}
 						>
 							<img
-								src={preview}
+								src={getImageUrl(user?.record, user?.record?.avatar) || avatar}
 								alt="Profile"
 								className="avatar avatar-lg rounded-circle mb-2"
 								style={{ width: 100, height: 100, objectFit: "cover" }}
@@ -73,12 +75,12 @@ function Profile() {
 							{hover && (
 								<div
 									className="position-absolute top-50 start-50 translate-middle bg-dark bg-opacity-50 rounded-circle d-flex align-items-center justify-content-center"
-									style={{ width: 100, height: 100 }}
+									style={{ width: 100, height: 100, objectFit: "cover" }}
 								>
 									<i
 										className="bx bx-camera text-white"
 										style={{ fontSize: 32 }}
-									></i>
+									/>
 								</div>
 							)}
 							<input
@@ -123,6 +125,7 @@ function Profile() {
 									value={profile.email}
 									onChange={handleChange}
 									required
+									disabled
 								/>
 							</div>
 							<div className="col-md-6">

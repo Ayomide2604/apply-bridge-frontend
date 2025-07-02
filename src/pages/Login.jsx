@@ -1,17 +1,17 @@
 import icon from "../assets/img/brand-icon.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import useAuthStore from "../stores/useAuthStore";
 
-const Login = ({ setUser, user }) => {
-	const navigate = useNavigate();
+const Login = () => {
+	const { login } = useAuthStore();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const navigate = useNavigate();
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		// Fake login: set user to true
-		setUser(true);
-		navigate("/dashboard");
+		login({ email, password, navigate });
 	};
 
 	return (
