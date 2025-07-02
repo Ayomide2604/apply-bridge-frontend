@@ -13,11 +13,9 @@ import Dashboard from "./screens/Dashboard";
 import DashboardHome from "./pages/DashboardHome";
 import Profile from "./pages/Profile";
 import Applications from "./pages/Applications";
+import FancyLoader from "./components/Loader";
 
 function App() {
-	const [user, setUser] = useState(false);
-	const location = useLocation();
-
 	return (
 		<>
 			<Header />
@@ -26,15 +24,9 @@ function App() {
 					<Route index element={<HomeScreen />} />
 					<Route path="/contact" element={<Contact />} />
 					<Route path="/login" element={<Login />} />
-					<Route
-						path="/signup"
-						element={<Signup setUser={setUser} user={user} />}
-					/>
+					<Route path="/signup" element={<Signup />} />
 					<Route path="/forgot-password" element={<ForgotPassword />} />
-					<Route
-						path="/dashboard/*"
-						element={<Dashboard user={user} setUser={setUser} />}
-					>
+					<Route path="/dashboard/*" element={<Dashboard />}>
 						<Route index element={<DashboardHome />} />
 						<Route path="home" element={<DashboardHome />} />
 						<Route path="applications" element={<Applications />} />

@@ -1,4 +1,3 @@
-import React from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import avatar from "../assets/img/avatar.png";
 import useAuthStore from "../stores/useAuthStore";
@@ -13,13 +12,11 @@ const navItems = [
 ];
 
 const Dashboard = () => {
-	const { user } = useAuthStore();
-	const navigate = useNavigate();
+	const { user, logout } = useAuthStore();
 
 	const handleNavClick = (item) => {
 		if (item.label === "Sign Out") {
-			setUser(false);
-			navigate("/");
+			logout();
 		}
 	};
 

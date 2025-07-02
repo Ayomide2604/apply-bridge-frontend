@@ -1,0 +1,107 @@
+.fancy-loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255,255,255,0.85);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s;
+}
+
+.fancy-loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  width: 100%;
+  animation: fadeIn 0.7s;
+}
+
+.fancy-loader-svg {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 18px;
+}
+
+.fancy-loader-orbit {
+  stroke-dasharray: 251.2;
+  stroke-dashoffset: 0;
+  transform-origin: 50% 50%;
+  animation: orbit-spin 1.2s linear infinite;
+}
+
+.fancy-loader-dot {
+  animation: dot-spin 1.2s linear infinite;
+  transform-origin: 50px 50px;
+}
+
+.fancy-loader-text {
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.15em;
+  color: #2575fc;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.fancy-loader-blink {
+  animation: blink 1.2s steps(1) infinite;
+}
+
+.fancy-loader-logo {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 18px;
+  filter: drop-shadow(0 0 16px #6a11cb88) drop-shadow(0 0 32px #2575fc55);
+  animation: logo-bounce 1.2s infinite cubic-bezier(.68,-0.55,.27,1.55);
+  background: transparent;
+  border-radius: 0;
+  object-fit: contain;
+}
+
+.fancy-loader-logo-placeholder {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  filter: blur(2px) brightness(1.2);
+  animation: logo-bounce 1.2s infinite cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+@keyframes orbit-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dot-spin {
+  0% {
+    transform: rotate(0deg) translateY(0);
+  }
+  100% {
+    transform: rotate(360deg) translateY(0);
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes logo-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-18px) scale(1.08); }
+}
