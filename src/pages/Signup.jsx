@@ -1,6 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 import icon from "../assets/img/brand-icon.svg";
 import { useState } from "react";
+import useAuthStore from "../stores/useAuthStore";
+import Loader from "../components/Loader";
+import logo from "../assets/img/logo.svg";
 
 const Signup = ({ setUser, user }) => {
 	const navigate = useNavigate();
@@ -9,13 +12,25 @@ const Signup = ({ setUser, user }) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
+	const { register, loading } = useAuthStore();
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		// Fake signup: set user to true
-		setUser(true);
-		navigate("/dashboard");
+		await register(
+			{
+				firstName,
+				lastName,
+				email,
+				password,
+				passwordConfirm: confirmPassword,
+			},
+			navigate
+		);
 	};
+
+	if (loading) {
+		return <Loader />;
+	}
 
 	return (
 		<>

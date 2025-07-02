@@ -80,6 +80,7 @@ const Header = () => {
 											data-bs-toggle="dropdown"
 											aria-expanded="false"
 										>
+											<span>{user?.record?.email}</span>
 											<img
 												src={
 													getImageUrl(user?.record, user?.record?.avatar) ||
@@ -88,8 +89,8 @@ const Header = () => {
 												alt="profile"
 												className="img-fluid rounded-circle ms-3"
 												style={{
-													height: 50,
-													width: 50,
+													height: 40,
+													width: 40,
 													objectFit: "cover",
 												}}
 											/>

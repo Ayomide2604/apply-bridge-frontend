@@ -1,10 +1,11 @@
 import icon from "../assets/img/brand-icon.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import Loader from "../components/Loader";
 import useAuthStore from "../stores/useAuthStore";
 
 const Login = () => {
-	const { login } = useAuthStore();
+	const { login, loading } = useAuthStore();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const navigate = useNavigate();
@@ -13,6 +14,10 @@ const Login = () => {
 		e.preventDefault();
 		login({ email, password, navigate });
 	};
+
+	if (loading) {
+		return <Loader />;
+	}
 
 	return (
 		<>
