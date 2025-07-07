@@ -1,7 +1,7 @@
-import React, { Suspense, useState } from "react";
+import React, { Suspense } from "react";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import { Routes, Route, useLocation, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";

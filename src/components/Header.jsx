@@ -51,7 +51,7 @@ const Header = () => {
 							</Link>
 							<button
 								type="button"
-								className="btn-close"
+								className="btn-close me-2"
 								data-bs-dismiss="offcanvas"
 								aria-label="Close"
 							/>
@@ -59,20 +59,35 @@ const Header = () => {
 						<div className="offcanvas-body pt-0 align-items-center">
 							<ul className="navbar-nav mx-auto align-items-lg-center">
 								<li className="nav-item ">
-									<Link className="nav-link " to="/" role="button">
-										Home
-									</Link>
+									<p
+										className="nav-link "
+										role="button"
+										data-bs-toggle="offcanvas"
+										data-bs-target=".offcanvas-nav"
+									>
+										<Link to="/">Home</Link>
+									</p>
 								</li>
 
 								<li className="nav-item">
-									<Link className="nav-link " to="/#services" role="button">
-										Services
-									</Link>
+									<p
+										className="nav-link"
+										role="button"
+										data-bs-toggle="offcanvas"
+										data-bs-target=".offcanvas-nav"
+									>
+										<Link to="/#services">Services</Link>
+									</p>
 								</li>
 								<li className="nav-item ">
-									<Link className="nav-link " to="/contact" role="button">
-										Contact
-									</Link>
+									<p
+										className="nav-link "
+										role="button"
+										data-bs-toggle="offcanvas"
+										data-bs-target=".offcanvas-nav"
+									>
+										<Link to="/contact">Contact</Link>
+									</p>
 								</li>
 							</ul>
 
@@ -140,7 +155,7 @@ const Header = () => {
 								)}
 							</div>
 
-							<div className="text-lg-end d-flex align-items-center justify-content-lg-end ms-3">
+							<div className="text-lg-end d-flex align-items-center justify-content-lg-end ms-3 my-3">
 								<div className="dropdown">
 									<button
 										className="btn btn-light btn-icon rounded-circle d-flex align-items-center"
