@@ -11,7 +11,8 @@ const Header = () => {
 		"/login",
 		"/signup",
 		"/forgot-password",
-		"/page-not-found",
+		"/error",
+		"/contact",
 	];
 
 	if (hideOnRoutes.includes(location.pathname)) {
@@ -22,7 +23,7 @@ const Header = () => {
 			<nav className="navbar navbar-expand-lg  transparent navbar-transparent navbar-light navbar-clone fixed navbar-stick">
 				<div className="container px-3">
 					<Link className="navbar-brand" to="/">
-						<img src={logo} alt="logo" />
+						<img src={logo} alt="logo" height={100} />
 					</Link>
 					<button
 						className="navbar-toggler offcanvas-nav-btn"
@@ -38,7 +39,7 @@ const Header = () => {
 					>
 						<div className="offcanvas-header">
 							<Link to="/" className="text-inverse">
-								<img src={logo} alt="logo" />
+								<img src={logo} alt="logo" height={100} />
 							</Link>
 							<button
 								type="button"

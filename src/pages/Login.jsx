@@ -1,4 +1,4 @@
-import icon from "../assets/img/brand-icon.svg";
+import icon from "../assets/img/logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Loader from "../components/Loader";
@@ -28,7 +28,7 @@ const Login = () => {
 						<div className="col-xl-4 offset-xl-4 col-md-12 col-12">
 							<div className="text-center">
 								<Link to="/">
-									<img src={icon} alt="logo" className="mb-3" />
+									<img src={icon} alt="logo" className="mb-3" height={100} />
 								</Link>
 								<h1 className="mb-1">Welcome Back</h1>
 								<p className="mb-0">

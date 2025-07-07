@@ -6,7 +6,8 @@ const Footer = () => {
 		"/login",
 		"/signup",
 		"/forgot-password",
-		"page-not-found",
+		"/error",
+		"/contact",
 	];
 
 	if (hideOnRoutes.includes(location.pathname)) {

@@ -50,12 +50,12 @@ const Hero = () => {
 									className="img-fluid rounded-3"
 									width={837}
 								/>
-								<a
+								{/* <a
 									href="https://www.youtube.com/watch?v=CivuutI6lXY"
 									className="play-btn glightbox position-absolute top-50 start-50 translate-middle icon-shape icon-xl rounded-circle text-primary"
 								>
 									<i className="bi bi-play-fill" />
-								</a>
+								</a> */}
 							</div>
 						</div>
 					</div>
