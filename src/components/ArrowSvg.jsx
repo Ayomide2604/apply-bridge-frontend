@@ -1,13 +1,13 @@
 import React from "react";
 
-const ArrowSvg = () => {
+const ArrowSvg = ({ className = "" }) => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			width={32}
 			height={32}
 			fill="currentColor"
-			className="bi bi-arrow-right text-body-tertiary"
+			className={`bi bi-arrow-right text-body-tertiary ${className}`}
 			viewBox="0 0 16 16"
 		>
 			<path

@@ -16,14 +16,17 @@ const GetStarted = () => {
 					</div>
 				</div>
 				<div className="table-responsive-xl">
-					<div className="row flex-nowrap pb-4 pb-lg-0 me-5 me-lg-0">
-						<div className="col-lg-4 col-md-6 col-12" data-cue="slideInLeft">
+					<div className="row pb-4 pb-lg-0 me-5 me-lg-0">
+						<div
+							className="col-lg-4 col-md-6 col-12 mb-4"
+							data-cue="slideInLeft"
+						>
 							<div className="p-xl-5">
 								<div className="d-flex align-items-center justify-content-between mb-5">
 									<div className="icon-xl icon-shape rounded-circle bg-primary border border-primary-subtle border-4 text-white-stable fw-semibold fs-3">
 										1
 									</div>
-									<ArrowSvg />
+									<ArrowSvg className="d-none d-lg-block" />
 								</div>
 								<h3 className="h4">Contact Us</h3>
 								<p className="mb-0">
@@ -32,28 +35,34 @@ const GetStarted = () => {
 								</p>
 							</div>
 						</div>
-						<div className="col-lg-4 col-md-6 col-12" data-cue="slideInLeft">
+						<div
+							className="col-lg-4 col-md-6 col-12 mb-4"
+							data-cue="slideInLeft"
+						>
 							<div className="p-xl-5">
 								<div className="d-flex align-items-center justify-content-between mb-5">
 									<div className="icon-xl icon-shape rounded-circle bg-primary border border-primary-subtle border-4 text-white-stable fw-semibold fs-3">
 										2
 									</div>
-									<ArrowSvg />
+									<ArrowSvg className="d-none d-lg-block" />
 								</div>
 								<h3 className="h4">Get Personalized Support</h3>
 								<p className="mb-0">
-									We’ll review your CV, discuss your needs, and recommend the
+									We'll review your CV, discuss your needs, and recommend the
 									best services to maximize your chances of success.
 								</p>
 							</div>
 						</div>
-						<div className="col-lg-4 col-md-6 col-12" data-cue="slideInLeft">
+						<div
+							className="col-lg-4 col-md-6 col-12 mb-4"
+							data-cue="slideInLeft"
+						>
 							<div className="p-xl-5">
 								<div className="d-flex align-items-center justify-content-between mb-5">
 									<div className="icon-xl icon-shape rounded-circle bg-primary border border-primary-subtle border-4 text-white-stable fw-semibold fs-3">
 										3
 									</div>
-									<ArrowSvg />
+									<ArrowSvg className="d-none d-lg-block" />
 								</div>
 								<h3 className="h4">Start Your Application Journey</h3>
 								<p className="mb-0">
