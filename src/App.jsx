@@ -15,6 +15,7 @@ import Profile from "./pages/Profile";
 import Applications from "./pages/Applications";
 import FancyLoader from "./components/Loader";
 import Headroom from "react-headroom";
+import ChatBot from "./components/ChatBot";
 
 function App() {
 	return (
@@ -41,6 +42,7 @@ function App() {
 					</Routes>
 				</main>
 				<Footer />
+				<ChatBot />
 				<ScrollToTop />
 			</Suspense>
 		</div>
