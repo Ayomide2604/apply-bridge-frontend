@@ -10,9 +10,9 @@ import "swiper/css";
 import { Pagination, Autoplay } from "swiper/modules";
 
 const logos = [
-	{ src: glassdoor, alt: "Glassdoor" },
-	{ src: indeed, alt: "Indeed" },
 	{ src: linkedin, alt: "LinkedIn" },
+	{ src: indeed, alt: "Indeed" },
+	{ src: glassdoor, alt: "Glassdoor" },
 	{ src: upwork, alt: "Upwork" },
 	{ src: zipRecruiter, alt: "ZipRecruiter" },
 	{ src: adzuna, alt: "Adzuna" },

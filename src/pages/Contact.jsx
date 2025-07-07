@@ -9,11 +9,6 @@ const Contact = () => {
 			<section className="py-5 py-lg-8">
 				<div className="container">
 					<div className="row">
-						<div className=" text-sm-start text-center">
-							<Link to="/">
-								<img src={icon} alt="logo" className="mb-3" height={150} />
-							</Link>
-						</div>
 						<div className="col-lg-6 offset-lg-1 col-md-12 col-12">
 							<h1 className="mb-3">Contact us</h1>
 							<p className="mb-0 lead">
@@ -27,6 +22,7 @@ const Contact = () => {
 			{/*Pageheader end*/}
 			{/*Contact us start*/}
 			<section className="mb-xl-9 my-5">
+				
 				<div className="container">
 					<div className="row">
 						<div className="col-lg-10 offset-lg-1 col-md-12 col-12">

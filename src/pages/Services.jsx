@@ -1,6 +1,6 @@
 const Services = () => {
 	return (
-		<section className="my-xl-9 my-5">
+		<section className="my-xl-9 my-5" id="services">
 			<div className="container" data-cue="fadeIn">
 				<div className="row">
 					<div className="col-xl-8 offset-xl-2">

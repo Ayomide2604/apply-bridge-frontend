@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const ScrollToTop = () => {
 	const [active, setActive] = useState(false);
 	const pathRef = useRef(null);
+	const location = useLocation();
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -22,6 +24,19 @@ const ScrollToTop = () => {
 		window.addEventListener("scroll", handleScroll);
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
+
+	// Scroll to anchor if hash is present after route change
+	useEffect(() => {
+		if (location.hash) {
+			const id = location.hash.replace("#", "");
+			const el = document.getElementById(id);
+			if (el) {
+				el.scrollIntoView({ behavior: "smooth" });
+			}
+		} else {
+			window.scrollTo({ top: 0, behavior: "smooth" });
+		}
+	}, [location]);
 
 	const scrollToTop = (e) => {
 		e.preventDefault();

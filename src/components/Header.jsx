@@ -21,13 +21,7 @@ const Header = () => {
 		setTheme(value);
 	};
 
-	const hideOnRoutes = [
-		"/login",
-		"/signup",
-		"/forgot-password",
-		"/error",
-		"/contact",
-	];
+	const hideOnRoutes = ["/login", "/signup", "/forgot-password", "/error"];
 
 	if (hideOnRoutes.includes(location.pathname)) {
 		return null;
@@ -69,13 +63,9 @@ const Header = () => {
 										Home
 									</Link>
 								</li>
-								<li className="nav-item ">
-									<Link className="nav-link" to="#" role="button">
-										About Us
-									</Link>
-								</li>
+
 								<li className="nav-item">
-									<Link className="nav-link " to="#" role="button">
+									<Link className="nav-link " to="/#services" role="button">
 										Services
 									</Link>
 								</li>
