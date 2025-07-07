@@ -3,7 +3,7 @@ import hero from "../assets/img/hero.jpg";
 const Hero = () => {
 	return (
 		<section
-			className="bg-primary-dark pt-9 right-slant-shape"
+			className="bg-primary-dark pt-9 right-slant-shape mt-5"
 			data-cue="fadeIn"
 		>
 			<div className="container">
