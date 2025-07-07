@@ -1,13 +1,23 @@
-import logo1 from "../assets/img/companies/clients-logo-1.svg";
-import logo2 from "../assets/img/companies/clients-logo-2.svg";
-import logo3 from "../assets/img/companies/clients-logo-3.svg";
-import logo4 from "../assets/img/companies/clients-logo-4.svg";
-import logo5 from "../assets/img/companies/clients-logo-5.svg";
-
+import glassdoor from "../assets/img/companies/glassdoor.svg";
+import indeed from "../assets/img/companies/indeed_logo.svg";
+import linkedin from "../assets/img/companies/linkedin.svg";
+import upwork from "../assets/img/companies/Upwork.svg";
+import zipRecruiter from "../assets/img/companies/ZipRecruiter.svg";
+import adzuna from "../assets/img/companies/adzuna.svg";
+import job from "../assets/img/companies/job.com.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 
+const logos = [
+	{ src: glassdoor, alt: "Glassdoor" },
+	{ src: indeed, alt: "Indeed" },
+	{ src: linkedin, alt: "LinkedIn" },
+	{ src: upwork, alt: "Upwork" },
+	{ src: zipRecruiter, alt: "ZipRecruiter" },
+	{ src: adzuna, alt: "Adzuna" },
+	{ src: job, alt: "Job.com" },
+];
 const Companies = () => {
 	return (
 		<section className="my-xl-9 my-5">
@@ -32,38 +42,20 @@ const Companies = () => {
 					speed={400}
 					pagination={{ clickable: true, el: "swiper-pagination" }}
 					spaceBetween={100}
-					autoplay={{ delay: 3000 }}
+					autoplay={{ delay: 1500 }}
 					breakpoints={{
 						480: { slidesPerView: 2 },
 						768: { slidesPerView: 3 },
 						1024: { slidesPerView: 5 },
 					}}
 				>
-					<SwiperSlide>
-						<figure className="text-center">
-							<img src={logo1} alt="Company 1" />
-						</figure>
-					</SwiperSlide>
-					<SwiperSlide>
-						<figure className="text-center">
-							<img src={logo2} alt="Company 2" />
-						</figure>
-					</SwiperSlide>
-					<SwiperSlide>
-						<figure className="text-center">
-							<img src={logo3} alt="Company 3" />
-						</figure>
-					</SwiperSlide>
-					<SwiperSlide>
-						<figure className="text-center">
-							<img src={logo4} alt="Company 4" />
-						</figure>
-					</SwiperSlide>
-					<SwiperSlide>
-						<figure className="text-center">
-							<img src={logo5} alt="Company 5" />
-						</figure>
-					</SwiperSlide>
+					{logos.map((logo) => (
+						<SwiperSlide key={logo.src}>
+							<figure className="text-center">
+								<img src={logo.src} alt={logo.alt} height={50} />
+							</figure>
+						</SwiperSlide>
+					))}
 				</Swiper>
 			</div>
 		</section>
