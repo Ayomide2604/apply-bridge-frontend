@@ -1,4 +1,4 @@
-import { BiFingerprint } from "react-icons/bi";
+import logo from "../assets/img/logo.svg";
 import { Link } from "react-router-dom";
 
 const ForgotPassword = () => {
@@ -12,7 +12,7 @@ const ForgotPassword = () => {
 						<div className="col-xl-4 offset-xl-4 col-md-12 col-12">
 							<div className="text-center">
 								<div className="icon-xxl icon-shape border rounded p-3 mb-4">
-									<BiFingerprint size={32} />
+									<img src={logo} height={100} className="p-2" />
 								</div>
 								<h1 className="mb-1">Forgot Password</h1>
 								<p className="mb-0">

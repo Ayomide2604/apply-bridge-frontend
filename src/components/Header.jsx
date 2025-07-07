@@ -27,7 +27,7 @@ const Header = () => {
 		return null;
 	}
 	return (
-		<header>
+		<header className="header sticky-top">
 			<nav className="navbar navbar-expand-lg  transparent navbar-stick">
 				<div className="container px-3">
 					<Link className="navbar-brand" to="/">
@@ -147,68 +147,79 @@ const Header = () => {
 										</ul>
 									</>
 								) : (
-									<div className="d-flex gap-3">
+									<div className="d-flex align-items-center gap-4 my-3">
 										<Link to="/login" className="btn btn-primary">
 											Get Started
 										</Link>
+										<div className="dropdown">
+											<button
+												className="btn btn-light btn-icon rounded-circle d-flex align-items-center"
+												type="button"
+												aria-expanded="false"
+												data-bs-toggle="dropdown"
+												aria-label={`Toggle theme (${theme})`}
+											>
+												<i className="bi theme-icon-active lh-1">
+													{theme === "dark" ? (
+														<i className="bi theme-icon bi-moon-stars-fill" />
+													) : (
+														<i className="bi theme-icon bi-sun-fill" />
+													)}
+												</i>
+												<span className="visually-hidden bs-theme-text">
+													Toggle theme
+												</span>
+											</button>
+											<ul
+												className="dropdown-menu dropdown-menu-end shadow"
+												aria-labelledby="bs-theme-text"
+											>
+												<li>
+													<button
+														type="button"
+														className={`dropdown-item d-flex align-items-center${
+															theme === "light" ? " active text-primary" : ""
+														}`}
+														data-bs-theme-value="light"
+														aria-pressed={theme === "light"}
+														onClick={() => handleThemeChange("light")}
+													>
+														<i className="bi theme-icon bi-sun-fill" />
+														<span className="ms-2">Light</span>
+													</button>
+												</li>
+												<li>
+													<button
+														type="button"
+														className={`dropdown-item d-flex align-items-center${
+															theme === "dark" ? " active text-primary" : ""
+														}`}
+														data-bs-theme-value="dark"
+														aria-pressed={theme === "dark"}
+														onClick={() => handleThemeChange("dark")}
+													>
+														<i className="bi theme-icon bi-moon-stars-fill" />
+														<span className="ms-2">Dark</span>
+													</button>
+												</li>
+												<li>
+													<button
+														type="button"
+														className={`dropdown-item d-flex align-items-center${
+															theme === "auto" ? " active text-primary" : ""
+														}`}
+														data-bs-theme-value="auto"
+														aria-pressed={theme === "auto"}
+														onClick={() => handleThemeChange("auto")}
+													>
+														<i className="bi theme-icon bi-circle-half" />
+														<span className="ms-2">Auto</span>
+													</button>
+												</li>
+											</ul>
+										</div>
 									</div>
 								)}
-							</div>
-
-							<div className="text-lg-end d-flex align-items-center justify-content-lg-end ms-3 my-3">
-								<div className="dropdown">
-									<button
-										className="btn btn-light btn-icon rounded-circle d-flex align-items-center"
-										type="button"
-										aria-expanded="false"
-										data-bs-toggle="dropdown"
-										aria-label={`Toggle theme (${theme})`}
-									>
-										<i className="bi theme-icon-active lh-1">
-											{theme === "dark" ? (
-												<i className="bi theme-icon bi-moon-stars-fill" />
-											) : (
-												<i className="bi theme-icon bi-sun-fill" />
-											)}
-										</i>
-										<span className="visually-hidden bs-theme-text">
-											Toggle theme
-										</span>
-									</button>
-									<ul
-										className="dropdown-menu dropdown-menu-end shadow"
-										aria-labelledby="bs-theme-text"
-									>
-										<li>
-											<button
-												type="button"
-												className={`dropdown-item d-flex align-items-center${
-													theme === "light" ? " active text-primary" : ""
-												}`}
-												data-bs-theme-value="light"
-												aria-pressed={theme === "light"}
-												onClick={() => handleThemeChange("light")}
-											>
-												<i className="bi theme-icon bi-sun-fill" />
-												<span className="ms-2">Light</span>
-											</button>
-										</li>
-										<li>
-											<button
-												type="button"
-												className={`dropdown-item d-flex align-items-center${
-													theme === "dark" ? " active text-primary" : ""
-												}`}
-												data-bs-theme-value="dark"
-												aria-pressed={theme === "dark"}
-												onClick={() => handleThemeChange("dark")}
-											>
-												<i className="bi theme-icon bi-moon-stars-fill" />
-												<span className="ms-2">Dark</span>
-											</button>
-										</li>
-									</ul>
-								</div>
 							</div>
 						</div>
 					</div>

@@ -4,7 +4,8 @@ import linkedin from "../assets/img/companies/linkedin.svg";
 import upwork from "../assets/img/companies/Upwork.svg";
 import zipRecruiter from "../assets/img/companies/ZipRecruiter.svg";
 import adzuna from "../assets/img/companies/adzuna.svg";
-import job from "../assets/img/companies/job.com.svg";
+import job from "../assets/img/companies/job.svg";
+import simplyHired from "../assets/img/companies/simply_hired.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Pagination, Autoplay } from "swiper/modules";
@@ -17,6 +18,7 @@ const logos = [
 	{ src: zipRecruiter, alt: "ZipRecruiter" },
 	{ src: adzuna, alt: "Adzuna" },
 	{ src: job, alt: "Job.com" },
+	{ src: simplyHired, alt: "Simply Hired" },
 ];
 const Companies = () => {
 	return (
