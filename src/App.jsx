@@ -14,12 +14,15 @@ import DashboardHome from "./pages/DashboardHome";
 import Profile from "./pages/Profile";
 import Applications from "./pages/Applications";
 import FancyLoader from "./components/Loader";
+import Headroom from "react-headroom";
 
 function App() {
 	return (
 		<>
 			<Suspense fallback={<FancyLoader />}>
-				<Header />
+				<Headroom style={{ zIndex: 1000 }}>
+					<Header />
+				</Headroom>
 				<main className="app">
 					<Routes>
 						<Route index element={<HomeScreen />} />
