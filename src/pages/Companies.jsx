@@ -1,5 +1,5 @@
 import glassdoor from "../assets/img/companies/glassdoor.svg";
-import indeed from "../assets/img/companies/indeed_logo.svg";
+import indeed from "../assets/img/companies/indeed.svg";
 import linkedin from "../assets/img/companies/linkedin.svg";
 import upwork from "../assets/img/companies/Upwork.svg";
 import zipRecruiter from "../assets/img/companies/ZipRecruiter.svg";
