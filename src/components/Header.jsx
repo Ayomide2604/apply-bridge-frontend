@@ -3,10 +3,24 @@ import logo from "../assets/img/logo.svg";
 import avatar from "../assets/img/avatar.png";
 import useAuthStore from "../stores/useAuthStore";
 import getImageUrl from "../utils/getImageUrl";
+import { useEffect, useState } from "react";
 
 const Header = () => {
 	const { user, logout } = useAuthStore();
 	const location = useLocation();
+	const [theme, setTheme] = useState(
+		() => localStorage.getItem("bs-theme") || "auto"
+	);
+
+	useEffect(() => {
+		document.documentElement.setAttribute("data-bs-theme", theme);
+		localStorage.setItem("bs-theme", theme);
+	}, [theme]);
+
+	const handleThemeChange = (value) => {
+		setTheme(value);
+	};
+
 	const hideOnRoutes = [
 		"/login",
 		"/signup",
@@ -130,28 +144,27 @@ const Header = () => {
 								) : (
 									<div className="d-flex gap-3">
 										<Link to="/login" className="btn btn-primary">
-											Login
-										</Link>
-										<Link to="/signup" className="btn btn-primary">
 											Get Started
 										</Link>
 									</div>
 								)}
 							</div>
 
-							{/* theme toggle  */}
-
-							{/* <div className="text-lg-end d-flex align-items-center justify-content-lg-end ms-3">
+							<div className="text-lg-end d-flex align-items-center justify-content-lg-end ms-3">
 								<div className="dropdown">
 									<button
 										className="btn btn-light btn-icon rounded-circle d-flex align-items-center"
 										type="button"
 										aria-expanded="false"
 										data-bs-toggle="dropdown"
-										aria-label="Toggle theme (auto)"
+										aria-label={`Toggle theme (${theme})`}
 									>
 										<i className="bi theme-icon-active lh-1">
-											<i className="bi theme-icon bi-sun-fill" />
+											{theme === "dark" ? (
+												<i className="bi theme-icon bi-moon-stars-fill" />
+											) : (
+												<i className="bi theme-icon bi-sun-fill" />
+											)}
 										</i>
 										<span className="visually-hidden bs-theme-text">
 											Toggle theme
@@ -164,9 +177,12 @@ const Header = () => {
 										<li>
 											<button
 												type="button"
-												className="dropdown-item d-flex align-items-center active"
+												className={`dropdown-item d-flex align-items-center${
+													theme === "light" ? " active text-primary" : ""
+												}`}
 												data-bs-theme-value="light"
-												aria-pressed="true"
+												aria-pressed={theme === "light"}
+												onClick={() => handleThemeChange("light")}
 											>
 												<i className="bi theme-icon bi-sun-fill" />
 												<span className="ms-2">Light</span>
@@ -175,28 +191,20 @@ const Header = () => {
 										<li>
 											<button
 												type="button"
-												className="dropdown-item d-flex align-items-center"
+												className={`dropdown-item d-flex align-items-center${
+													theme === "dark" ? " active text-primary" : ""
+												}`}
 												data-bs-theme-value="dark"
-												aria-pressed="false"
+												aria-pressed={theme === "dark"}
+												onClick={() => handleThemeChange("dark")}
 											>
 												<i className="bi theme-icon bi-moon-stars-fill" />
 												<span className="ms-2">Dark</span>
 											</button>
 										</li>
-										<li>
-											<button
-												type="button"
-												className="dropdown-item d-flex align-items-center"
-												data-bs-theme-value="auto"
-												aria-pressed="false"
-											>
-												<i className="bi theme-icon bi-circle-half" />
-												<span className="ms-2">Auto</span>
-											</button>
-										</li>
 									</ul>
 								</div>
-							</div> */}
+							</div>
 						</div>
 					</div>
 				</div>

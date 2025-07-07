@@ -18,7 +18,7 @@ import Headroom from "react-headroom";
 
 function App() {
 	return (
-		<>
+		<div>
 			<Suspense fallback={<FancyLoader />}>
 				<Headroom style={{ zIndex: 1000 }}>
 					<Header />
@@ -43,7 +43,7 @@ function App() {
 				<Footer />
 				<ScrollToTop />
 			</Suspense>
-		</>
+		</div>
 	);
 }
 
